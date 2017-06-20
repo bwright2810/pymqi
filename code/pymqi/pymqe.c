@@ -200,6 +200,7 @@ static PyObject * pymqe_MQCONNX(PyObject *self, PyObject *args) {
   int mqcd_buf_len = 0;
   MQCNO cno = {MQCNO_DEFAULT};
   PyObject* user_password = NULL;
+  MQCSP csp = {MQCSP_DEFAULT};
 
   /*  Note: MQLONG is an int on 64 bit platforms and MQHCONN is an MQLONG
    */
@@ -236,8 +237,6 @@ static PyObject * pymqe_MQCONNX(PyObject *self, PyObject *args) {
 #else
   cno.Version = MQCNO_VERSION_2;
 #endif
-
-  MQCSP csp = {MQCSP_DEFAULT};
 
   if(PyDict_Size(user_password)) {
 
